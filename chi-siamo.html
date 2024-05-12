@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Rena Store - Chi siamo</title>
+    <link rel="icon" type="image/x-icon" href="logostore.png">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Rena Store">
+    <meta property="og:description" content="Scarica gratis app apk dal Rena Store">
+    <meta property="og:image" content="logostore.png">
+    <meta property="og:url" content="renastore.altervista.org">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Open Sauce', sans-serif;
+        }
+
+        .header-nav-link {
+            color: white !important;
+        }
+    
+        .header-nav-item {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .header-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: font-size 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-nav-item:hover .header-nav-link {
+            font-size: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            margin-right: 10px;
+        }
+
+        /* Nascondi il menu di navigazione su dispositivi mobili */
+        @media screen and (max-width: 767px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .menu-icon {
+                width: 50px;
+                margin-left: 220px;
+                margin-top: 30px;
+            }
+        }
+
+        /* Nascondi l'icona del menu su schermi più grandi */
+        @media screen and (min-width: 768px) {
+            .menu-icon {
+                display: none;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-logo">
+            <a class="header-brand" href="javascript://">
+                <svg class="brand-logo" width="35" height="35" xmlns="logostore.png" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                    <img src="logostore.png" hspace="15" width="35" height="35" style="border-radius: 30px">
+                </svg>
+            </a>
+        </div>
+        <!-- Mostra solo su dispositivi mobili -->
+        <div class="header-nav">
+            <ul class="nav">
+                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org">Home</a></li>
+                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/app.html">App</a></li>
+                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/giochi.html">Giochi</a></li>
+                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/download.html">Download</a></li>
+                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/chi-siamo.html">Chi siamo</a></li>
+            </ul>
+<style>
+.header-nav-link {
+color: black !important;
+}
+</style>
+        </div>
+        <!-- Mostra solo su dispositivi mobili -->
+        <a href="https://renastore.altervista.org/menu.html">
+            <img src="Menu.png" alt="Menu" class="menu-icon">
+        </a>
+        
+          <div id="custom-menu">
+  <ul>
+    <li><a href="https://renastore.altervista.org"><img src="homebanner.png" alt="Image 1" width="20"><span>Home</span></a></li>
+            <li><a href="https://renastore.altervista.org/app.html"><img src="appbanner.png" alt="Image 3" width="22"><span>App</span></a></li>
+        <li><a href="https://renastore.altervista.org/giochi.html"><img src="giochibanner.png" alt="Image 3" width="22"><span>Giochi</span></a></li>
+        <li><a href="https://renastore.altervista.org/chi-siamo.html"><img src="chisiamobanner.png" alt="Image 2" width="18"><span>Chi siamo</span></a></li>
+    <li><a href="https://renastore.altervista.org/download.html"><img src="downloadbanner.png" alt="Image 5" width="20"><span>Download</span></a></li>
+  </ul>
+</div>
+  
+<style>
+#custom-menu {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  backdrop-filter: blur(5px) brightness(200%);
+}
+
+#custom-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#custom-menu ul li {
+  margin-bottom: 10px;
+}
+
+#custom-menu ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+#custom-menu ul li a img {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#custom-menu ul li a span {
+  font-size: 16px;
+}
+
+#custom-menu ul li a span {
+  font-size: 16px;
+  color: black;
+}
+</style>
+
+<script>
+document.addEventListener('contextmenu', function(event) {
+  event.preventDefault();
+  if (window.innerWidth > 768) { 
+    var customMenu = document.getElementById('custom-menu');
+    customMenu.style.display = 'block';
+    customMenu.style.left = event.pageX + 'px';
+    customMenu.style.top = event.pageY + 'px';
+  }
+});
+
+document.addEventListener('click', function(event) {
+  var customMenu = document.getElementById('custom-menu');
+  customMenu.style.display = 'none';
+});
+
+</script>
+    </header>
+    
+<style>
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .banner {
+        max-width: 700px;
+        margin-right: 20px; 
+    }
+    
+    .banner img {
+        max-width: 700px;
+        border-radius: 50px;
+    }
+
+    #text {
+        max-width: 600px;
+    }
+
+    /* Regole per i dispositivi con larghezza minore di 768px (media query per telefoni) */
+    @media screen and (max-width: 767px) {
+        .content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .banner {
+            max-width: 90px;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        
+        .banner img {
+            max-width: 300px;
+            border-radius: 20px;
+        }
+
+        #text {
+            max-width: 300px;
+        }
+    }
+</style>
+<div class="content">
+    <div class="banner">
+        <img src="banner.png" alt="Banner" class="rounded-banner">
+    </div>
+    <div id="text">
+        <p>Entra in un ambiente digitale dove la sicurezza è al primo posto. Benvenuto su Rena Store, la tua destinazione fidata per le app APK. In un mondo digitale spesso intriso di rischi e incertezze, Rena Store si distingue come un punto di riferimento per la sicurezza e l'affidabilità.
+
+Con un impegno totale per la sicurezza informatica, ogni app presente su Rena Store è soggetta a una rigorosa valutazione e ad un processo di screening approfondito prima di essere resa disponibile al pubblico. Il nostro team di esperti tecnici e di sicurezza lavora incessantemente per garantire che ogni app sia esente da malware, spyware o altre minacce che potrebbero compromettere la tua privacy e la sicurezza del tuo dispositivo.
+
+Ma la sicurezza è solo una delle caratteristiche che rendono Rena Store la scelta ideale per i tuoi download. La nostra vasta collezione di app APK offre una varietà di opzioni, dalle utility di produttività agli intrattenimenti più coinvolgenti, dalle app di personalizzazione ai giochi più divertenti. Che tu stia cercando un'app per ottimizzare il tuo lavoro o un gioco per svagarti, Rena Store ha ciò di cui hai bisogno.
+
+Inoltre, ci impegniamo a offrire un'esperienza utente senza pari. La nostra interfaccia intuitiva ti permette di navigare agevolmente tra le varie categorie di app e di trovare ciò che desideri con facilità. E se hai domande o necessiti di assistenza, il nostro team di supporto clienti è sempre pronto ad aiutarti, garantendo un'esperienza senza intoppi.
+
+Con Rena Store, non devi più sacrificare la sicurezza per ottenere le app di cui hai bisogno. Unisciti alla nostra comunità di utenti soddisfatti e scopri perché Rena Store è il luogo prediletto per chi cerca tranquillità e sicurezza. Esplora con fiducia, esplora con Rena Store.</p>
+    </div>
+</div>
+
+<div style="width: 50%; height: 75px;"></div>
