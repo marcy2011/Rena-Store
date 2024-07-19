@@ -6,3 +6,4 @@ Entra in un ambiente digitale dove la sicurezza è al primo posto. Benvenuto su 
 I file allegati qui su Git Hub sono solo quelli principali
 # Vedi tutto il sito su https://renastore.altervista.org
 # Scarica l'app su https://renastore.altervista.org/download.html
+# Aggiungi la tua app al Rena Store su https://renadeveloper.altervista.org/renastore.html
