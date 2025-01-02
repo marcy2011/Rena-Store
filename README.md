@@ -1,4 +1,4 @@
-# Rena-Store
+# Rena Store
 Scarica app apk dal Rena Store
 # Rena Store by Rena
 Il Rena Store è l'appstore FOSS (Free and Open Source Software) ufficiale di Rena. Qui puoi trovare applicazioni sia per dispositivi mobili che per computer.
