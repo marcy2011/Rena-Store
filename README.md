@@ -1,4 +1,4 @@
-<img src="https://renastore.altervista.org/logo.png" width="100px" alt="logo" border-radius="20px" text-align="center">
+<img src="https://renastore.altervista.org/logo.png" width="100px" alt="logo" border-radius="20px" text-align="center" margin-left="50%">
 
 # Rena Store
 
