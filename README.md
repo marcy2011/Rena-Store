@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://renastore.altervista.org/logo.png" width="100px" style="border-radius:20px;">
+  <img src="https://renastore.altervista.org/logo.png" width="100px">
 </p>
 
 # Rena Store
