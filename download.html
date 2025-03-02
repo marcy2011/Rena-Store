@@ -1,215 +1,293 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <title>Rena Store</title>
-    <link rel="icon" type="image/x-icon" href="logostore.png">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Rena Store">
-    <meta property="og:description" content="Scarica gratis app apk dal Rena Store">
-    <meta property="og:image" content="logostore.png">
-    <meta property="og:url" content="renastore.altervista.org">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  <title>Rena Store - Download</title>
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta property="og:title" content="Rena Store">
+  <meta property="og:description" content="Scarica gratis app apk dal Rena Store">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:url" content="renastore.altervista.org">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  <style>
+    a,
+    button {
+      cursor: url('cursore.png'), pointer;
+    }
+
+    body {
+      cursor: url('cursore.png'), pointer;
+    }
+  </style>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Open Sauce', sans-serif;
+    }
+
+    .header-nav-link {
+      color: white !important;
+    }
+
+    .header-nav-item {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    .header-nav-link {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: font-size 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-nav-item:hover .header-nav-link {
+      font-size: 12px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 767px) {
+      .header-nav {
+        display: none;
+      }
+
+      .header-logo {
+        width: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .menu-icon {
+        width: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 30px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .menu-icon {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="page-header">
+    <div class="header-logo">
+      <a class="header-brand" href="https://renastore.altervista.org">
+        <svg class="brand-logo" width="35" height="35" xmlns="logostore.png" preserveAspectRatio="xMidYMid slice"
+          focusable="false" role="img">
+          <img src="logo.png" hspace="15" width="35" height="35" style="border-radius: 30px">
+        </svg>
+      </a>
+    </div>
+    <style>
+      .header-logo img {
+        transition: transform 0.3s ease;
+      }
+
+      .header-logo:hover img {
+        transform: translateY(-5px);
+      }
+    </style>
+    <div class="header-nav">
+      <ul class="nav">
+        <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark"
+            href="https://renastore.altervista.org">Home</a></li>
+        <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark"
+            href="https://renastore.altervista.org/app.html">App</a></li>
+        <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark"
+            data-translate-it="Giochi" data-translate-en="Game" href="https://renastore.altervista.org/giochi.html">Giochi</a></li>
+        <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark"
+            href="https://renastore.altervista.org/download.html">Download</a></li>
+      </ul>
+    </div>
+    <a href="https://renastore.altervista.org/menu.html">
+      <img src="https://gamecloudservices.altervista.org/menuaperto.png" alt="Menu" class="menu-icon">
+    </a>
+
+    <div id="custom-menu">
+      <ul>
+        <li><a href="https://renastore.altervista.org"><img src="https://gcsapp.altervista.org/homebanner.png"
+              alt="Image 1" width="20"><span>Home</span></a></li>
+        <li><a href="https://renastore.altervista.org/app.html"><img src="appban.png" alt="Image 3"
+              width="22"><span>App</span></a></li>
+        <li><a href="https://renastore.altervista.org/giochi.html"><img
+              src="https://gcsapp.altervista.org/giochibanner.png" alt="Image 3" width="22"><span
+              data-translate-it="Giochi" data-translate data-translate-en="Game">Giochi</span></a></li>
+        <li><a href="https://renastore.altervista.org/download.html"><img
+              src="https://renaarcade.altervista.org/downloadbanner.png" alt="Image 5"
+              width="20"><span>Download</span></a></li>
+      </ul>
+    </div>
 
     <style>
-        body {
-            background-color: white;
-            color: black;
-            font-family: 'Open Sauce', sans-serif;
-        }
+      #custom-menu {
+        display: none;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        padding: 10px;
+        backdrop-filter: blur(5px);
+      }
 
-        .header-nav-link {
-            color: white !important;
-        }
-    
-        .header-nav-item {
-            display: inline-block;
-            margin-right: 10px;
-            position: relative;
-        }
+      #custom-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-        .header-nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            transition: font-size 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
+      #custom-menu ul li {
+        margin-bottom: 10px;
+      }
 
-        .header-nav-item:hover .header-nav-link {
-            font-size: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+      #custom-menu ul li a {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+      }
 
-        .page-header {
-            display: flex;
-            align-items: center;
-        }
+      #custom-menu ul li a img {
+        margin-right: 10px;
+        border-radius: 5px;
+      }
 
-        .header-logo {
-            margin-right: 10px;
-        }
-
-        /* Nascondi il menu di navigazione su dispositivi mobili */
-        @media screen and (max-width: 767px) {
-            .header-nav {
-                display: none;
-            }
-            
-            .menu-icon {
-                width: 50px;
-                margin-left: 220px;
-                margin-top: 30px;
-            }
-        }
-
-        /* Nascondi l'icona del menu su schermi più grandi */
-        @media screen and (min-width: 768px) {
-            .menu-icon {
-                display: none;
-            }
-        }
+      #custom-menu ul li a span {
+        font-size: 16px;
+      }
     </style>
-    
-</head>
-<body>
-    <header class="page-header">
-        <div class="header-logo">
-            <a class="header-brand" href="javascript://">
-                <svg class="brand-logo" width="35" height="35" xmlns="logostore.png" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                    <img src="logostore.png" hspace="15" width="35" height="35" style="border-radius: 30px">
-                </svg>
-            </a>
-        </div>
-        <!-- Mostra solo su dispositivi mobili -->
-        <div class="header-nav">
-            <ul class="nav">
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org">Home</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/app.html">App</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/giochi.html">Giochi</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/download.html">Download</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/chi-siamo.html">Chi siamo</a></li>
-            </ul>
-<style>
-.header-nav-link {
-color: black !important;
-}
-</style>
-        </div>
-        <!-- Mostra solo su dispositivi mobili -->
-        <a href="https://renastore.altervista.org/menu.html">
-            <img src="Menu.png" alt="Menu" class="menu-icon">
-        </a>
-        
-          <div id="custom-menu">
-  <ul>
-    <li><a href="https://renastore.altervista.org"><img src="homebanner.png" alt="Image 1" width="20"><span>Home</span></a></li>
-            <li><a href="https://renastore.altervista.org/app.html"><img src="appbanner.png" alt="Image 3" width="22"><span>App</span></a></li>
-        <li><a href="https://renastore.altervista.org/giochi.html"><img src="giochibanner.png" alt="Image 3" width="22"><span>Giochi</span></a></li>
-        <li><a href="https://renastore.altervista.org/chi-siamo.html"><img src="chisiamobanner.png" alt="Image 2" width="18"><span>Chi siamo</span></a></li>
-    <li><a href="https://renastore.altervista.org/download.html"><img src="downloadbanner.png" alt="Image 5" width="20"><span>Download</span></a></li>
-  </ul>
-</div>
-  
-<style>
-#custom-menu {
-  display: none;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 10px;
-  backdrop-filter: blur(5px) brightness(200%);
-}
 
-#custom-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    <script>
+      document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+        if (window.innerWidth > 768) {
+          var customMenu = document.getElementById('custom-menu');
+          customMenu.style.display = 'block';
+          customMenu.style.left = event.pageX + 'px';
+          customMenu.style.top = event.pageY + 'px';
+        }
+      });
 
-#custom-menu ul li {
-  margin-bottom: 10px;
-}
+      document.addEventListener('click', function (event) {
+        var customMenu = document.getElementById('custom-menu');
+        customMenu.style.display = 'none';
+      });
 
-#custom-menu ul li a {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-}
-
-#custom-menu ul li a img {
-  margin-right: 10px;
-  border-radius: 5px;
-}
-
-#custom-menu ul li a span {
-  font-size: 16px;
-}
-
-#custom-menu ul li a span {
-  font-size: 16px;
-  color: black;
-}
-</style>
-
-<script>
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-  if (window.innerWidth > 768) { 
-    var customMenu = document.getElementById('custom-menu');
-    customMenu.style.display = 'block';
-    customMenu.style.left = event.pageX + 'px';
-    customMenu.style.top = event.pageY + 'px';
-  }
-});
-
-document.addEventListener('click', function(event) {
-  var customMenu = document.getElementById('custom-menu');
-  customMenu.style.display = 'none';
-});
-
-</script>
-    </header>
-<div style="text-align: center; margin-top: 30px;">
+    </script>
+  </header>
+  <div style="width: 50%; height: 50px;"></div>
+  <div style="text-align: center; margin-top: 30px;">
     <div style="border-radius: 15%; box-shadow: 0 0 20px white; display: inline-block;">
-        <img src="logostore.png" alt="Logo" style="border-radius: 50%; width: 200px; height: 200px;">
+      <img src="logo.png" alt="Logo" style="border-radius: 50%; width: 200px; height: 200px;">
     </div>
     <div style="margin-top: 10px;">
-        <h1>Rena Store App</h1>
-        <a href="https://apk.e-droid.net/apk/app2938025-35wf79.apk?v=3" style="text-decoration: none;">
-            <button id="btn">Download</button>
-        </a>
+      <h1>Rena Store App</h1>
+      <a href="https://apk.e-droid.net/apk/app2938025-35wf79.apk?v=3" style="text-decoration: none;">
+        <button id="btn">Download</button>
+      </a>
     </div>
+    <style>
+      ::selection {
+        background-color: white;
+        color: black;
+      }
+    </style>
+    <style>
+      button {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border-radius: 8px;
+        font-size: 17px;
+        font-weight: 500;
+        color: #ffffff80;
+        text-shadow: none;
+        background: transparent;
+        cursor: pointer;
+        box-shadow: transparent;
+        border: 1px solid #ffffff80;
+        transition: 0.5s ease;
+        user-select: none;
+      }
 
-<style>
-button {
-  padding: 10px 20px;
-  text-transform: uppercase;
-  border-radius: 8px;
-  font-size: 17px;
-  font-weight: 500;
-  color: #00000080;
-  text-shadow: none;
-  background: transparent;
-  cursor: pointer;
-  box-shadow: transparent;
-  border: 1px solid #00000080;
-  transition: 0.5s ease;
-  user-select: none;
-}
+      #btn:hover,
+      :focus {
+        color: #ffffff;
+        background: #008cff;
+        border: 1px solid #008cff;
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+        box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+          0 0 100px #008cff;
+      }
+    </style>
 
-#btn:hover,
-:focus {
-  color: #ffffff;
-  background: #008cff;
-  border: 1px solid #008cff;
-  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-  box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
-    0 0 100px #008cff;
-}
-</style>
+    <div style="width: 50%; height: 75px;"></div>
+    <style>
+      *:focus {
+        outline: none;
+      }
 
-<div style="width: 50%; height: 75px;"></div>
+      button:focus,
+      input:focus,
+      textarea:focus {
+        outline: none;
+      }
+
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+    <script>
+      function translatePage(lang) {
+        localStorage.setItem('preferredLanguage', lang);
+
+        document.querySelectorAll('[data-translate-it]').forEach(function (el) {
+          if (lang === 'it') {
+            el.textContent = el.getAttribute('data-translate-it');
+          } else if (lang === 'en') {
+            el.textContent = el.getAttribute('data-translate-en');
+          }
+        });
+
+        const imgElement = document.getElementById('lingua');
+        if (lang === 'it') {
+          imgElement.src = 'https://renadeveloper.altervista.org/bandierait.png';
+          imgElement.setAttribute('data-alt-src', 'https://renadeveloper.altervista.org/bandieraen.png');
+          imgElement.setAttribute('data-lang', 'it');
+        } else if (lang === 'en') {
+          imgElement.src = 'https://renadeveloper.altervista.org/bandieraen.png';
+          imgElement.setAttribute('data-alt-src', 'https://renadeveloper.altervista.org/bandierait.png');
+          imgElement.setAttribute('data-lang', 'en');
+        }
+      }
+
+      function loadSavedLanguage() {
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang) {
+          translatePage(savedLang);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', loadSavedLanguage);
+    </script>
