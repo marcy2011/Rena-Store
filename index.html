@@ -1,251 +1,540 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-    <title>Rena Store</title>
-    <link rel="icon" type="image/x-icon" href="logostore.png">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Rena Store">
-    <meta property="og:description" content="Scarica gratis app apk dal Rena Store">
-    <meta property="og:image" content="logostore.png">
-    <meta property="og:url" content="renastore.altervista.org">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <title>Rena Store</title>
+  <style>
+    *:focus {
+      outline: none;
+    }
 
-    <style>
-        body {
-            background-color: white;
-            color: black;
-            font-family: 'Open Sauce', sans-serif;
-        }
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: none;
+    }
 
-        .header-nav-link {
-            color: white !important;
-        }
-    
-        .header-nav-item {
-            display: inline-block;
-            margin-right: 10px;
-            position: relative;
-        }
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        .header-nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            transition: font-size 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    a,
+    span {
+      color: #ffffff;
+      text-decoration: none;
+    }
 
-        .header-nav-item:hover .header-nav-link {
-            font-size: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+    a {
+      text-decoration: none;
+    }
 
-        .page-header {
-            display: flex;
-            align-items: center;
-        }
+    a:hover {
+      text-decoration: none;
+    }
+  </style>
+  <style>
+    ::selection {
+      background-color: white;
+      color: black;
+    }
+  </style>
+  <style>
+    a,
+    button {
+      cursor: url('cursore.png'), pointer;
+    }
 
-        .header-logo {
-            margin-right: 10px;
-        }
+    body {
+      cursor: url('cursore.png'), pointer;
+    }
 
-        /* Nascondi il menu di navigazione su dispositivi mobili */
-        @media screen and (max-width: 767px) {
-            .header-nav {
-                display: none;
-            }
-            
-            .menu-icon {
-                width: 50px;
-                margin-left: 220px;
-                margin-top: 30px;
-            }
-        }
+    ::selection {
+      background-color: white;
+      color: black;
+    }
 
-        /* Nascondi l'icona del menu su schermi più grandi */
-        @media screen and (min-width: 768px) {
-            .menu-icon {
-                display: none;
-            }
-        }
-    </style>
-    
+    :root {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --accent-color: #ffffff;
+      --glow-color: rgba(255, 255, 255, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sauce', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+    }
+
+    .hero-logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+      border-radius: 35px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px var(--glow-color);
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px var(--glow-color);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px var(--glow-color);
+    }
+
+    .features {
+      padding: 100px 0;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 60px;
+      text-shadow: 0 0 15px var(--glow-color);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .feature-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px var(--glow-color);
+    }
+
+    .feature-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    #custom-menu {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 10px;
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+    #custom-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #custom-menu ul li {
+      margin-bottom: 10px;
+    }
+
+    #custom-menu ul li a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #custom-menu ul li a img {
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    #custom-menu ul li a span {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header class="page-header">
-        <div class="header-logo">
-            <a class="header-brand" href="javascript://">
-                <svg class="brand-logo" width="35" height="35" xmlns="logostore.png" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-                    <img src="logostore.png" hspace="15" width="35" height="35" style="border-radius: 30px">
-                </svg>
-            </a>
-        </div>
-        <!-- Mostra solo su dispositivi mobili -->
-        <div class="header-nav">
-            <ul class="nav">
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org">Home</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/app.html">App</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/giochi.html">Giochi</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/download.html">Download</a></li>
-                <li class="header-nav-item"><a class="header-nav-link ripple ripple-dark" href="https://renastore.altervista.org/chi-siamo.html">Chi siamo</a></li>
-            </ul>
-<style>
-.header-nav-link {
-color: black !important;
-}
-</style>
-        </div>
-        <!-- Mostra solo su dispositivi mobili -->
-        <a href="https://renastore.altervista.org/menu.html">
-            <img src="Menu.png" alt="Menu" class="menu-icon">
-        </a>
-        
-          <div id="custom-menu">
-  <ul>
-    <li><a href="https://renastore.altervista.org"><img src="homebanner.png" alt="Image 1" width="20"><span>Home</span></a></li>
-            <li><a href="https://renastore.altervista.org/app.html"><img src="appbanner.png" alt="Image 3" width="22"><span>App</span></a></li>
-        <li><a href="https://renastore.altervista.org/giochi.html"><img src="giochibanner.png" alt="Image 3" width="22"><span>Giochi</span></a></li>
-        <li><a href="https://renastore.altervista.org/chi-siamo.html"><img src="chisiamobanner.png" alt="Image 2" width="18"><span>Chi siamo</span></a></li>
-    <li><a href="https://renastore.altervista.org/download.html"><img src="downloadbanner.png" alt="Image 5" width="20"><span>Download</span></a></li>
-  </ul>
-</div>
-  
-<style>
-#custom-menu {
-  display: none;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 10px;
-  backdrop-filter: blur(5px) brightness(200%);
-  z-index: 999;
-}
 
-#custom-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  <img id="lingua" src="https://renadeveloper.altervista.org/bandierait.png" alt="Lingua"
+    data-alt-src="https://renadeveloper.altervista.org/bandieraen.png">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var languagePopup = document.getElementById('language-popup');
+      var flagImage = document.getElementById('lingua');
 
-#custom-menu ul li {
-  margin-bottom: 10px;
-}
+      flagImage.addEventListener('click', function (event) {
+        event.stopPropagation();
+        languagePopup.style.display = 'block';
+      });
 
-#custom-menu ul li a {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-}
+      document.getElementById('close-popup').addEventListener('click', function () {
+        languagePopup.style.display = 'none';
+      });
 
-#custom-menu ul li a img {
-  margin-right: 10px;
-  border-radius: 5px;
-}
+      document.addEventListener('click', function (event) {
+        if (languagePopup.style.display === 'block' && event.target !== languagePopup && !languagePopup.contains(event.target)) {
+          languagePopup.style.display = 'none';
+        }
+      });
 
-#custom-menu ul li a span {
-  font-size: 16px;
-}
+      document.querySelectorAll('.language-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var lang = this.getAttribute('data-lang');
+          translatePage(lang);
+          languagePopup.style.display = 'none';
+        });
+      });
+    });
 
-#custom-menu ul li a span {
-  font-size: 16px;
-  color: black;
-}
-</style>
+    function translatePage(lang) {
+      document.querySelectorAll('[data-translate]').forEach(function (element) {
+        var text = element.getAttribute('data-translate-' + lang);
+        if (text) {
+          element.textContent = text;
+        }
+      });
 
-<script>
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-  if (window.innerWidth > 768) { 
-    var customMenu = document.getElementById('custom-menu');
-    customMenu.style.display = 'block';
-    customMenu.style.left = event.pageX + 'px';
-    customMenu.style.top = event.pageY + 'px';
-  }
-});
+      var flagImage = document.getElementById('lingua');
+      if (lang === 'en') {
+        flagImage.src = 'https://renadeveloper.altervista.org/bandieraen.png';
+      } else if (lang === 'it') {
+        flagImage.src = 'https://renadeveloper.altervista.org/bandierait.png';
+      }
+    }
+  </script>
+  <script>
+    document.addEventListener('contextmenu', function (event) {
+      event.preventDefault();
+      if (window.innerWidth > 768) {
+        var customMenu = document.getElementById('custom-menu');
+        customMenu.style.display = 'block';
+        customMenu.style.left = event.pageX + 'px';
+        customMenu.style.top = event.pageY + 'px';
+      }
+    });
 
-document.addEventListener('click', function(event) {
-  var customMenu = document.getElementById('custom-menu');
-  customMenu.style.display = 'none';
-});
-
-</script>
-    </header>
-<h2>App e giochi in primo piano</h2>    
-<a href="https://renastore.altervista.org/spotify.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="https://play-lh.googleusercontent.com/cShys-AmJ93dB0SV8kE6Fl5eSaf4-qMMZdwEDKI5VEmKAXfzOqbiaeAsqqrEBCTdIEs=w240-h480-rw" alt="Spotify Logo">
-  </div>
-</a>
-<a href="https://renastore.altervista.org/rena-arcades.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="https://gamecloudservices.altervista.org/logo.jpg" alt="Rena Arcades Logo">
-  </div>
-</a>
-<a href="https://renastore.altervista.org/tik-tok.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="https://play-lh.googleusercontent.com/BmUViDVOKNJe0GYJe22hsr7juFndRVbvr1fGmHGXqHfJjNAXjd26bfuGRQpVrpJ6YbA=w240-h480-rw" alt="Tik Tok Logo">
-  </div>
-</a>
-<a href="https://renastore.altervista.org/snapchat.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="https://play-lh.googleusercontent.com/KxeSAjPTKliCErbivNiXrd6cTwfbqUJcbSRPe_IBVK_YmwckfMRS1VIHz-5cgT09yMo=w240-h480-rw" alt="Snapchat Logo">
-  </div>
-</a>
-<a href="https://renastore.altervista.org/minecraft.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="minearcade.png" alt="Minecraft Logo">
-  </div>
-</a>
-<a href="https://renastore.altervista.org/whatsapp.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN=w240-h480-rw" alt="WhatsApp Logo">
-  </div>
-</a>  
-<a href="https://renastore.altervista.org/brawl-stars.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="com.supercell.brawlstars.icon.2024-02-27-23-03-39.png" alt="Brawl Stars Logo">
-  </div>
-</a>  
-<a href="https://renastore.altervista.org/study-pack.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="iconasp.png" alt="Study Pack Logo">
-  </div>
-</a>  
-<a href="https://renastore.altervista.org/shazam.html" target="_blank" rel="noopener noreferrer">
-  <div class="image-container">
-    <img src="shlogo.png" alt="Shazam Logo">
-  </div>
-</a> 
-<style>
-  .image-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 30px;
-    transition: transform 0.3s, margin 0.3s;
-    width: 150px;
-  }
-
-  .image-container img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .image-container {
-      margin-left: 10px;
-      width: 100px;
+    document.addEventListener('click', function (event) {
+      var customMenu = document.getElementById('custom-menu');
+      customMenu.style.display = 'none';
+    });
+  </script>
+  <style>
+    #lingua {
+      cursor: pointer;
+      width: 30px;
+      position: absolute;
+      top: 20px;
+      right: 57px;
+      transform: translateX(50%);
       border-radius: 20px;
-      margin-top: 10px;
-      transition: none;
+      z-index: 200;
     }
 
-    .image-container:nth-child(2n) {
-      clear: both;
+    @media screen and (max-width: 600px) {
+      #lingua {
+        margin-top: 30px;
+        right: 50%;
+      }
     }
-</style>
+  </style>
+  <div id="language-popup" class="language-popup">
+    <span id="close-popup" class="close-popup">×</span>
+    <button class="language-btn" data-lang="it">Italiano</button>
+    <button class="language-btn" data-lang="en">English</button>
+  </div>
+  <style>
+    .language-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .language-btn {
+      margin: 20px;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .language-popup .language-btn {
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .language-btn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 750px) {
+      .app-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 10fr));
+      }
+    }
+  </style>
+  <div id="custom-menu">
+    <ul>
+      <li><a href="https://renastore.altervista.org"><img src="https://gcsapp.altervista.org/homebanner.png"
+            alt="Image 1" width="20"><span>Home</span></a></li>
+      <li><a href="https://renastore.altervista.org/app.html"><img src="appban.png" alt="Image 3"
+            width="22"><span>App</span></a></li>
+      <li><a href="https://renastore.altervista.org/giochi.html"><img
+            src="https://gcsapp.altervista.org/giochibanner.png" alt="Image 3" width="22"><span
+            data-translate-it="Giochi" data-translate data-translate-en="Game">Giochi</span></a></li>
+      <li><a href="https://renastore.altervista.org/download.html"><img
+            src="https://renaarcade.altervista.org/downloadbanner.png" alt="Image 5"
+            width="20"><span>Download</span></a></li>
+    </ul>
+  </div>
+
+  <script>
+    document.addEventListener('contextmenu', function (event) {
+      event.preventDefault();
+      if (window.innerWidth > 768) {
+        var customMenu = document.getElementById('custom-menu');
+        customMenu.style.display = 'block';
+        customMenu.style.left = event.pageX + 'px';
+        customMenu.style.top = event.pageY + 'px';
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      var customMenu = document.getElementById('custom-menu');
+      customMenu.style.display = 'none';
+    });
+
+  </script>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <img src="logo.png" alt="Logo" class="hero-logo">
+        <h1 class="glow-text">Rena Store</h1>
+        <p data-translate-it="Scarica app FOSS per Android o Windows" data-translate
+          data-translate-en="Download FOSS apps for Android or Windows">Scarica app FOSS per Android o Windows</p>
+        <a href="https://renastore.altervista.org/app.html" class="cta-button" data-translate-it="Inizia ora"
+          data-translate data-translate-en="Start now">Inizia ora</a>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="glow-text">Features</h2>
+        <div class="feature-grid">
+          <a href="https://renastore.altervista.org/app.html" class="feature-card floating-element">
+            <div class="feature-icon">
+              <img src="andrwinico.png" alt="Android & Windows Logo"
+                style="width: 150px; border-radius: 0px; heights: auto;">
+            </div>
+            <h3 class="glow-text" data-translate-it="Compatibilità" data-translate data-translate-en="Compatibility">
+              Compatibilità</h3>
+            <p data-translate-it="Sono compatibili app e giochi sia per Android (APK) che per Windows (EXE o ZIP)"
+              data-translate
+              data-translate-en="Apps and games are compatible with both Android (APK) and Windows (EXE or ZIP)">Sono
+              compatibili app e giochi sia per Android (APK) che per Windows (EXE o ZIP)</p>
+          </a>
+
+          <a href="https://renastore.altervista.org/app.html" class="feature-card floating-element">
+            <div class="feature-icon">
+              <img src="open-source.png" alt="Open Source Logo"
+                style="width: 110px; border-radius: 20px; heights: auto;">
+            </div>
+            <h3 class="glow-text">Open-Source</h3>
+            <p data-translate-it="Le app o i giochi sul Rena Store sono open-source o su Rena Developer o su GitHub"
+              data-translate
+              data-translate-en="The apps or games on the Rena Store are open-source or available on Rena Developer or GitHub">
+              Le app o i giochi sul Rena Store sono open-source o su Rena Developer o su GitHub</p>
+          </a>
+
+          <a href="https://renastore.altervista.org/download.html" class="feature-card floating-element">
+            <div class="feature-icon">
+              <img src="https://renaarcade.altervista.org/downloadbanner.png" alt="Download Logo"
+                style="width: 100px; border-radius: 20px; heights: auto;">
+            </div>
+            <h3 class="glow-text">Download</h3>
+            <p data-translate-it="Scarica l'app APK per Android per scaricare le app da telefono" data-translate
+              data-translate-en="Download the APK app for Android to download apps from your phone">Scarica l'app APK
+              per Android per scaricare le app da telefono</p>
+          </a>
+          <a href="https://renadeveloper.altervista.org/renastore.html" class="feature-card floating-element">
+            <div class="feature-icon">
+              <img src="https://renastore.altervista.org/logo.png" alt="Rena Store Logo"
+                style="width: 100px; border-radius: 20px; heights: auto;">
+            </div>
+            <h3 class="glow-text">Rena Store</h3>
+            <p data-translate-it="Pubblica la tua app su Rena Store e raggiungi un pubblico più ampio" data-translate
+              data-translate-en="Publish your app on Rena Store and reach a wider audience">Pubblica la tua app su Rena
+              Store e raggiungi un pubblico più ampio</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div style="width: 50%; height: 70px;"></div>
+  <script>
+    function translatePage(lang) {
+      localStorage.setItem('preferredLanguage', lang);
+
+      document.querySelectorAll('[data-translate-it]').forEach(function (el) {
+        if (lang === 'it') {
+          el.textContent = el.getAttribute('data-translate-it');
+        } else if (lang === 'en') {
+          el.textContent = el.getAttribute('data-translate-en');
+        }
+      });
+
+      const imgElement = document.getElementById('lingua');
+      if (lang === 'it') {
+        imgElement.src = 'https://renadeveloper.altervista.org/bandierait.png';
+        imgElement.setAttribute('data-alt-src', 'https://renadeveloper.altervista.org/bandieraen.png');
+        imgElement.setAttribute('data-lang', 'it');
+      } else if (lang === 'en') {
+        imgElement.src = 'https://renadeveloper.altervista.org/bandieraen.png';
+        imgElement.setAttribute('data-alt-src', 'https://renadeveloper.altervista.org/bandierait.png');
+        imgElement.setAttribute('data-lang', 'en');
+      }
+    }
+
+    function loadSavedLanguage() {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang) {
+        translatePage(savedLang);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSavedLanguage);
+  </script>
+</body>
+</html>
