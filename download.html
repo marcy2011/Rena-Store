@@ -98,18 +98,30 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0);
       backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
       z-index: 1000;
       opacity: 0;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: 
+        opacity 0.4s ease-out,
+        backdrop-filter 0.4s ease-out,
+        background 0.4s ease-out;
+    }
+
+    .popup-overlay.active {
+      display: block;
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .popup-content {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.7);
+      transform: translate(-50%, -50%) scale(0.9);
       background: rgba(0, 0, 0, 0.9);
       padding: 30px;
       border-radius: 20px;
@@ -119,7 +131,7 @@
       text-align: center;
       z-index: 1001;
       opacity: 0;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
       width: 80%;
       max-width: 400px;
     }
@@ -129,12 +141,6 @@
       transform: translate(-50%, -50%) scale(1);
     }
 
-    .popup-overlay.active {
-      display: block;
-      opacity: 1;
-      backdrop-filter: blur(5px);
-    }
-
     @media screen and (max-width: 768px) {
       .popup-content {
         padding: 20px;
@@ -142,7 +148,7 @@
         margin: 0;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%) scale(0.7);
+        transform: translate(-50%, -50%) scale(0.9);
       }
 
       .popup-content.active {
@@ -159,8 +165,7 @@
         margin: 8px 0;
       }
     }
-  </style>
-  <style>
+
     .close-popup {
       position: absolute;
       top: 10px;
@@ -289,7 +294,6 @@
         var customMenu = document.getElementById('custom-menu');
         customMenu.style.display = 'none';
       });
-
     </script>
   </header>
   <div style="width: 50%; height: 50px;"></div>
@@ -353,7 +357,60 @@
         -webkit-tap-highlight-color: transparent;
       }
     </style>
+    
+    <div class="popup-overlay">
+      <div class="popup-content">
+        <button class="close-popup">×</button>
+        <svg class="tools-icon" width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9zm-103.9 82l-56.7-56.7L18.7 402.8c-25 25-25 65.5 0 90.5s65.5 25 90.5 0l123.6-123.6c-7.6-19.9-9.9-41.6-5-62.7zM64 472c-13.2 0-24-10.8-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.2-10.7 24-24 24z"></path></g></svg>
+        <h2 data-translate-it="App in sviluppo" data-translate-en="App in development">App in sviluppo</h2>
+        <p data-translate-it="L'applicazione è ancora in fase di sviluppo." data-translate-en="The application is still under development.">L'applicazione è ancora in fase di sviluppo.</p>
+        <p data-translate-it="Torneremo presto con la versione definitiva!" data-translate-en="We'll be back soon with the final version!">Torneremo presto con la versione definitiva!</p>
+      </div>
+    </div>
+
     <script>
+      document.getElementById('download-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const overlay = document.querySelector('.popup-overlay');
+        const content = document.querySelector('.popup-content');
+        
+        // Attiva prima l'overlay
+        overlay.style.display = 'block';
+        
+        // Forza un reflow per avviare la transizione
+        void overlay.offsetWidth;
+        
+        // Aggiungi la classe active
+        overlay.classList.add('active');
+        
+        // Dopo un piccolo ritardo, attiva il contenuto
+        setTimeout(() => {
+          content.classList.add('active');
+        }, 100);
+      });
+
+      function closePopup() {
+        const overlay = document.querySelector('.popup-overlay');
+        const content = document.querySelector('.popup-content');
+        
+        content.classList.remove('active');
+        
+        setTimeout(() => {
+          overlay.classList.remove('active');
+          setTimeout(() => {
+            overlay.style.display = 'none';
+          }, 400);
+        }, 200);
+      }
+
+      // Assegna gli event listener per chiudere
+      document.querySelector('.close-popup').addEventListener('click', closePopup);
+      document.querySelector('.popup-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closePopup();
+        }
+      });
+
       function translatePage(lang) {
         localStorage.setItem('preferredLanguage', lang);
 
@@ -388,76 +445,6 @@
         }
       });
     </script>
-  <div class="popup-overlay">
-    <div class="popup-content">
-      <button class="close-popup">×</button>
-      <svg class="tools-icon" width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9zm-103.9 82l-56.7-56.7L18.7 402.8c-25 25-25 65.5 0 90.5s65.5 25 90.5 0l123.6-123.6c-7.6-19.9-9.9-41.6-5-62.7zM64 472c-13.2 0-24-10.8-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.2-10.7 24-24 24z"></path></g></svg>
-      <h2 data-translate-it="App in sviluppo" data-translate-en="App in development">App in sviluppo</h2>
-      <p data-translate-it="L'applicazione è ancora in fase di sviluppo." data-translate-en="The application is still under development.">L'applicazione è ancora in fase di sviluppo.</p>
-      <p data-translate-it="Torneremo presto con la versione definitiva!" data-translate-en="We'll be back soon with the final version!">Torneremo presto con la versione definitiva!</p>
-    </div>
   </div>
-
-  <script>
-    document.getElementById('download-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      const overlay = document.querySelector('.popup-overlay');
-      const content = document.querySelector('.popup-content');
-      
-      overlay.classList.add('active');
-      setTimeout(() => content.classList.add('active'), 10);
-    });
-
-    document.querySelector('.close-popup').addEventListener('click', function() {
-      const overlay = document.querySelector('.popup-overlay');
-      const content = document.querySelector('.popup-content');
-      
-      content.classList.remove('active');
-      setTimeout(() => overlay.classList.remove('active'), 300);
-    });
-
-    document.querySelector('.popup-overlay').addEventListener('click', function(e) {
-      if (e.target === this) {
-        const content = document.querySelector('.popup-content');
-        content.classList.remove('active');
-        setTimeout(() => this.classList.remove('active'), 300);
-      }
-    });
-  </script>
-  <script>
-    function translatePage(lang) {
-      localStorage.setItem('preferredLanguage', lang);
-
-      document.querySelectorAll('[data-translate-it]').forEach(function (el) {
-        if (lang === 'it') {
-          el.textContent = el.getAttribute('data-translate-it');
-        } else if (lang === 'en') {
-          el.textContent = el.getAttribute('data-translate-en');
-        }
-      });
-
-      document.querySelectorAll('[data-placeholder-it]').forEach(function (el) {
-        if (lang === 'it') {
-          el.setAttribute('placeholder', el.getAttribute('data-placeholder-it'));
-        } else if (lang === 'en') {
-          el.setAttribute('placeholder', el.getAttribute('data-placeholder-en'));
-        }
-      });
-
-      const flagImage = document.getElementById('lingua');
-      if (lang === 'it') {
-        flagImage.src = 'https://renadeveloper.altervista.org/bandierait.png';
-      } else if (lang === 'en') {
-        flagImage.src = 'https://renadeveloper.altervista.org/bandieraen.png';
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const savedLang = localStorage.getItem('preferredLanguage');
-      if (savedLang) {
-        translatePage(savedLang);
-      }
-    });
-  </script>
 </body>
 </html>
